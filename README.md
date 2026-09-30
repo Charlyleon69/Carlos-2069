@@ -47,7 +47,7 @@ Carlos-2069/
 Clonar el repositorio y entrar al proyecto:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/Charlyleon69/Carlos-2069.git
 cd Carlos-2069
 ```
 
@@ -235,4 +235,4 @@ npm test -- --run
 
 Repositorio público:
 
-`<URL_DEL_REPOSITORIO>`
+`https://github.com/Charlyleon69/Carlos-2069.git`
