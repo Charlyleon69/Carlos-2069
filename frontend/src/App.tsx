@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 
 function App() {
   const [view, setView] = useState('login');
+
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem('sisuLoggedIn') === 'true'
   );
@@ -15,36 +16,37 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('sisuLoggedIn');
+
     setIsLoggedIn(false);
+
     setView('login');
   };
 
   if (isLoggedIn) {
     return (
-      <Dashboard onLogout={handleLogout} />
+      <Dashboard
+        onLogout={handleLogout}
+      />
+    );
+  }
+
+  if (view === 'register') {
+    return (
+      <Register
+        onLogin={() =>
+          setView('login')
+        }
+      />
     );
   }
 
   return (
-    <div>
-      <h1>SISU</h1>
-
-      <div>
-        <button onClick={() => setView('login')}>
-          Iniciar sesión
-        </button>
-
-        <button onClick={() => setView('register')}>
-          Crear cuenta
-        </button>
-      </div>
-
-      <hr />
-
-      {view === 'login' && <Login onLogin={handleLogin} />}
-
-      {view === 'register' && <Register />}
-    </div>
+    <Login
+      onLogin={handleLogin}
+      onRegister={() =>
+        setView('register')
+      }
+    />
   );
 }
 
